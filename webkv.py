@@ -6,7 +6,7 @@ Web storage for key-value data
 """
 
 import shelve
-from bottle import Bottle, static_file, debug, request, HTTPError
+from bottle import Bottle, debug, request, HTTPError
 
 application = Bottle()
 
