@@ -6,7 +6,7 @@ Web storage for key-value data
 """
 
 import shelve
-from bottle import Bottle, debug, request, HTTPError
+from bottle import Bottle, debug, request, HTTPError, response
 
 application = Bottle()
 
@@ -27,6 +27,7 @@ def api(id):
     if request.GET:
         _storage[id] = dict(request.GET)
         _storage.sync()
+    response.set_header('Access-Control-Allow-Origin', '*')
     if id in _storage:
         return _storage[id]
     else:
